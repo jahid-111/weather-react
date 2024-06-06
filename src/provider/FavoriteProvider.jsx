@@ -1,15 +1,24 @@
 import { FavoriteContext } from "../context";
 import useLocalStorage from "../hooks/useLocalStorage";
-const FavoriteProvider = ({ clildren }) => {
+// eslint-disable-next-line react/prop-types
+const FavoriteProvider = ({ children }) => {
+  //  Noted :  BUG ( Solved )
+
   const [favorites, setFavorite] = useLocalStorage("favorites", []);
 
   const addToFavorites = (latitude, longitude, location) => {
-    setFavorite(...favorites, { latitude, longitude, location });
+    setFavorite([
+      ...favorites,
+      {
+        latitude: latitude,
+        longitude: longitude,
+        location: location,
+      },
+    ]);
   };
 
   const removeFromFavorites = () => {
-    const restFav = favorites.filter((fav) => fav.location !== location);
-
+    const restFav = favorites.filter((fav) => fav.location === location);
     setFavorite(restFav);
   };
 
@@ -17,9 +26,9 @@ const FavoriteProvider = ({ clildren }) => {
     <FavoriteContext.Provider
       value={{ addToFavorites, removeFromFavorites, favorites }}
     >
-      {clildren}
+      {children}
     </FavoriteContext.Provider>
   );
 };
 
-export default FavoriteProvider;
+export { FavoriteProvider };

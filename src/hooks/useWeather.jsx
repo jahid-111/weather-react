@@ -54,8 +54,8 @@ const useWeather = () => {
         cloudPercentage: data?.clouds?.all,
         wind: data?.wind?.speed,
         time: data?.dt,
-        latitude: "",
-        longitude: "",
+        latitude: latitude,
+        longitude: longitude,
       };
       setWeatherData(updatedWeatherData);
     } catch (err) {
@@ -77,7 +77,7 @@ const useWeather = () => {
     navigator.geolocation.getCurrentPosition(function (position) {
       fetchWeatherData(position.coords.latitude, position.coords.longitude);
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { weatherData, error, loading };
