@@ -5,6 +5,7 @@ import useWeather from "../hooks/useWeather";
 const WeatherProvider = ({ children }) => {
   const { weatherData, error, loading } = useWeather();
   // console.log(weatherData)
+  
   return (
     <WeatheContext.Provider value={{ weatherData, error, loading }}>
       {children}
