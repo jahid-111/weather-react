@@ -8,8 +8,8 @@ import LocationProvider from "./provider/LocationProvider";
 const Page = () => {
   // console.log(getLocations())
   return (
-    <>  
-      <LocationProvider> 
+    <>
+      <LocationProvider>
         <WeatherProvider>
           <FavoriteProvider>
             <div>
