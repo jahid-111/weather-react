@@ -30,7 +30,7 @@ const useWeather = () => {
     try {
       setLoading({
         ...loading,
-        state: true,
+        state: null,
         message: "Data Fetching....",
       });
 
@@ -74,8 +74,9 @@ const useWeather = () => {
 
   useEffect(() => {
     setLoading({
-      loading: true,
-      message: "Finding Location...",
+      ...loading,
+      state: true,
+      message: "Finding Your Location...",
     });
     if (selectedLocation.latitude && selectedLocation.longitude) {
       fetchWeatherData(selectedLocation.latitude, selectedLocation.longitude);
