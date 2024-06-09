@@ -8,11 +8,11 @@ import FewClouds from "./assets/backgrounds/few-clouds.jpg";
 import Mist from "./assets/backgrounds/mist.jpeg";
 import RainyDay from "./assets/backgrounds/rainy-day.jpg";
 import ScatteredCloud from "./assets/backgrounds/scattered-clouds.jpg";
-import ShowerRain from "./assets/backgrounds/shower-rain.jpg";
 import Snow from "./assets/backgrounds/snow.jpg";
-import Sunny from "./assets/backgrounds/sunny.jpg";
 import Thunderstorm from "./assets/backgrounds/thunderstorm.jpg";
 import Winter from "./assets/backgrounds/winter.jpg";
+// import Sunny from "./assets/backgrounds/sunny.jpg";
+// import ShowerRain from "./assets/backgrounds/shower-rain.jpg";
 
 // import { getLocations } from "./data/location-data";
 
@@ -54,7 +54,10 @@ const Page = () => {
   return (
     <>
       {loading.state ? (
-        <div className=" bg-no-repeat  bg-cover w-full " style={{ backgroundImage: `url('${climateImage}')` }}>
+        <div
+          className=" bg-no-repeat  bg-cover w-full "
+          style={{ backgroundImage: `url('${climateImage}')` }}
+        >
           <Header></Header>
           <main className=" grid place-items-center h-screen">
             <section>
